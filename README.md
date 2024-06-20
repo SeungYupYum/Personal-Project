@@ -4,7 +4,7 @@ This repository contains a collection of personal projects implemented by Seung 
 
 ## Table of Contents
 
-1. [AVL Tree](#AVL-Tree)
+1. [AVL Tree](AVL-Tree)
 2. [Client Server Implementation](#client-server-implementation)
 3. [Full-Stack Web Development](#full-stack-web-development)
 4. [Lewis Carroll Distance (Hash Map)](#lewis-carroll-distance-hash-map)
