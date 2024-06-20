@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fablix Main Page</title>
+    <link rel = "stylesheet" href = "style.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <!-- jQuery is required -->
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <!-- Include jQuery Autocomplete JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.devbridge-autocomplete/1.4.11/jquery.autocomplete.min.js"></script>
+    <style>
+        body {
+            background-color: #FDF5E6;
+            padding-top: 50px;
+            padding-bottom: 100px;
+            text-align: center;
+        }
+
+        form {
+            margin-bottom: 50px;
+        }
+
+        table {
+            margin: 0 auto;
+            margin-bottom: 50px;
+        }
+
+        h1 {
+            margin-bottom: 30px;
+            font-family: 'Arial', sans-serif;
+            color: #333;
+        }
+
+        input[type="text"] {
+            padding: 5px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            width: 200px;
+            margin-bottom: 10px;
+        }
+
+        input[type="submit"] {
+            padding: 5px 15px;
+            border-radius: 5px;
+            border: none;
+            background-color: #007bff;
+            color: white;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 50%;
+            margin: 0 auto;
+        }
+
+        th, td {
+            padding: 8px;
+            text-align: center;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        @media screen and (max-width: 600px) {
+            table {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+<h1>Fablix Main Page</h1>
+<button type="button" onclick="window.location.href='shopping-cart.html'" class="btn btn-primary">Checkout</button>
+<form action="movie-list.html" method="GET">
+    <label for="star_name">Star name:</label><br>
+    <input type="text" id="star_name" name="name" placeholder="Type Star Name"><br>
+
+    <label for="movie_title">Movie title:</label><br>
+    <input type="text" id="movie_title" name="title" placeholder="Type Movie Title"><br>
+
+    <label for="movie_year">Movie year:</label><br>
+    <input type="text" id="movie_year" name="year" placeholder="Type Released Year"><br>
+    <label for="movie_director">Movie Director:</label><br>
+    <input type="text" id="movie_director" name="director" placeholder="Type Director Name"><br>
+    <input type="hidden" name="genre" value="">
+    <input type="hidden" name="letter" value="">
+    <input type="hidden" name="ts" value="ASC1">
+    <input type="hidden" name="rs" value="DESC2">
+    <input type="hidden" name="size" value="25">
+    <input type="hidden" name="page" value="1">
+    <input type="submit" value="Search">
+</form>
+
+<form id="fulltext-search-form" action="single-movie.html" method="GET">
+    <label for="fulltext_search">FullText Search:</label><br>
+    <input type="text" id="fulltext_search" name="query" placeholder="Type FullText"><br>
+    <input type="submit" value="Search">
+</form>
+
+<table>
+    <tr>
+        <th colspan="5">Find by Genre</th>
+    </tr>
+    <tbody id="genre_table_body"></tbody>
+</table>
+
+<table>
+    <tr>
+        <th colspan="5">Find by First Letter</th>
+    </tr>
+    <tbody id="first_letter_table_body"></tbody>
+</table>
+
+<!-- Load our own JS file after all dependencies -->
+<script src="index.js"></script>
+</body>
+</html>

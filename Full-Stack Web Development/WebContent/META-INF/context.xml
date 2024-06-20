@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Context>
+
+    <!-- Data Source for Write Operations (Master) -->
+    <Resource name="jdbc/moviedb_write"
+              auth="Container"
+              driverClassName="com.mysql.cj.jdbc.Driver"
+              type="javax.sql.DataSource"
+              factory="org.apache.tomcat.jdbc.pool.DataSourceFactory"
+              maxTotal="100" maxIdle="30" maxWaitMillis="10000"
+              username="mytestuser"
+              password="My6$Password"
+              url="jdbc:mysql://mysql-primary:3306/moviedb?autoReconnect=true&amp;allowPublicKeyRetrieval=true&amp;useSSL=false&amp;cachePrepStmts=true"/>
+    <!--CHANGE THIS    -->
+    <!--              url="jdbc:mysql://172.31.0.246:3306/moviedb1"/> &lt;!&ndash;CHANGE THIS    &ndash;&gt;-->
+
+
+
+    <!--              url="jdbc:mysql://localhost:3306/moviedb"/>-->
+
+    <!-- Data Source for Read Operations (Slave) -->
+    <Resource name="jdbc/moviedb_read"
+              auth="Container"
+              driverClassName="com.mysql.cj.jdbc.Driver"
+              type="javax.sql.DataSource"
+              factory="org.apache.tomcat.jdbc.pool.DataSourceFactory"
+              maxTotal="100" maxIdle="30" maxWaitMillis="10000"
+              username="mytestuser"
+              password="My6$Password"
+              url="jdbc:mysql://mysql-secondary:3306/moviedb?autoReconnect=true&amp;allowPublicKeyRetrieval=true&amp;useSSL=false&amp;cachePrepStmts=true"/> <!--CHANGE THIS    -->
+    <!--              url="jdbc:mysql://3.140.58.153:3306/moviedb1"/> &lt;!&ndash;CHANGE THIS    &ndash;&gt;-->
+
+    <!--              url="jdbc:mysql://localhost:3306/moviedb"/> &lt;!&ndash;CHANGE THIS    &ndash;&gt;-->
+
+</Context>

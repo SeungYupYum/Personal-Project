@@ -1,0 +1,25 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Zot Search</title>
+
+    <!-- google font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&display=swap" rel="stylesheet">
+    
+    <!-- style sheet (if we use href="styles.css", react-router won't load css file for nested pages on refresh) -->
+    <link rel="stylesheet" href="/styles.css">
+
+    <!-- define base url (without this, react-router won't be able to load image or other public asset)--> 
+    <base href="/" /> <!-- for local host -->
+
+  </head>
+  <body>
+    <div id="root"></div>
+    <script src="./sec/index.js" type="text/JSX"></script>
+  </body>
+</html>
