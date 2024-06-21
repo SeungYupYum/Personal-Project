@@ -225,8 +225,7 @@ void WordSet::insert(const std::string & s)
 
 
 bool WordSet::contains(const std::string & s) const
-{
-	//return false;  // stub, not correct.
+{.
 	unsigned key_1 = polynomialHashFunction(s, BASE_H1, Current_capacity);
 	unsigned key_2 = polynomialHashFunction(s, BASE_H2, Current_capacity);
 
@@ -247,13 +246,11 @@ bool WordSet::contains(const std::string & s) const
 // return how many distinct strings are in the set
 unsigned WordSet::getCount() const
 {
-	// return BASE_H1 + BASE_H2; // this is not the right answer. 
 	return word_num;
 }
 
 // return how large the underlying array is.
 unsigned WordSet::getCapacity() const
 {
-	// return 1729; // that isn't even a prime number!
 	return Current_capacity;
 }

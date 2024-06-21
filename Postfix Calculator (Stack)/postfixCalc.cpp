@@ -104,7 +104,7 @@ unsigned postfixCalculator(const std::vector<std::string> & entries)
         throw CannotEvaluateException ("Too many numbers in there");
     }
     return NewStack.top();
-} // stub, not the correct answer
+}
     
 
 	

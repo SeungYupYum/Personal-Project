@@ -227,11 +227,6 @@ void showptable()
     }
 }
 
-// void quit()
-// {
-//     break;
-// }
-
 void loop() 
 {
     char input[100];                // whole input that will be tokenized

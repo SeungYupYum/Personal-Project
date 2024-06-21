@@ -10,7 +10,6 @@
 #include <unordered_map>
 
 
-// You should not need to change this function.
 void loadWordsIntoTable(WordSet & words, std::istream & in)
 {
 	std::string line, word;
@@ -28,7 +27,6 @@ void loadWordsIntoTable(WordSet & words, std::istream & in)
 
 }
 
-// You probably want to change this function.
 std::vector< std::string > convert(const std::string & s1, const std::string & s2, const WordSet & words)
 {
 	std::vector <std::string> solution;

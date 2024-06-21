@@ -1,13 +1,3 @@
-/*
-
-Student 1
-Name : Seung Yup Yum / UCInetID : syyum / Studnet ID Number : 76777057
-
-Student 2
-Name : Sumin Jo / UCInetID : jos2 / Studnet ID Number : 19847374
-
-*/
-
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>

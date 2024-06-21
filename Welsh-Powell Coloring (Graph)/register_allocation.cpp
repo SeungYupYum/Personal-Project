@@ -31,8 +31,6 @@ struct Node
 RegisterAssignment RA::assignRegisters(const std::string &path_to_graph, int num_registers) noexcept 
 {
   InterferenceGraph<Variable> ig = CSVReader::load(path_to_graph);
-
-  // TODO: You implement this!
   /* 
   Back tracking problem
   Need : map, used vertex set, unused vertex set, used color set, unused color set
@@ -146,57 +144,3 @@ RegisterAssignment RA::assignRegisters(const std::string &path_to_graph, int num
     }
   }
 }
-      /* if(Used_vertex_set.count(Sorted_vertex_list[i].vertex) == 1) // if it is alreday mapped, skip
-      {
-        continue;
-      }
-      else // not mapped, then map 
-      {
-        solution[Sorted_vertex_list[i].vertex] = Sorted_color_list.back(); // mapping
-        Used_vertex_set.insert(Sorted_vertex_list[i].vertex); //put it into used vertex set
-
-        std::unordered_set <std::string> Current_vertex_set; // current vertex set for current outter loop
-        Current_vertex_set.insert(Sorted_vertex_list[i].vertex);
-        bool isAdjacent = false;
-
-        if(Sorted_vertex_list.size() != 1)
-        {
-          for(unsigned j = i + 1; j < Sorted_vertex_list.size(); j++) // inner loop for coloring all vetex that is not adjacent, start from back to reduce time(failed)
-          {
-            if(Used_vertex_set.count(Sorted_vertex_list[j].vertex) == 0) //if it is not used vertex,
-            {           
-              for(auto element : Current_vertex_set) // mapping vertex to its degree, put it in max heap
-              {
-                if(ig.neighbors(element).count(Sorted_vertex_list[j].vertex) == 1)
-                {
-                  isAdjacent = true;
-                  break;
-                }
-              }
-              if(isAdjacent == false)
-              {
-                solution[Sorted_vertex_list[j].vertex] = Sorted_color_list.back(); //then map them
-                Used_vertex_set.insert(Sorted_vertex_list[j].vertex);
-                Current_vertex_set.insert(Sorted_vertex_list[j].vertex);
-              }
-              else
-              {
-                continue;
-              }
-            }
-            else
-            {
-              continue;
-            }
-          }
-        }
-        else
-        {
-          return solution;
-        }
-      }
-    Sorted_color_list.pop_back(); // pop the lowest integer since it was already used
-    }
-  return solution;
-  }
-}*/

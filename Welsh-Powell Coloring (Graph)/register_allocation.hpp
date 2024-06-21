@@ -13,6 +13,6 @@ using RegisterAssignment = std::unordered_map<Variable, Register>;
 RegisterAssignment assignRegisters(const std::string &path_to_graph,
                                    int num_registers) noexcept;
 
-}; // namespace proj6
+};
 
 #endif

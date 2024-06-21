@@ -16,12 +16,8 @@ class MyPriorityQueue {
 
   std::vector <Object> Min_heap;
   size_t word_num;
-    // fill in private member data here
-    // Object o; // this is only here fo`r use in a stub, you probably want to delete
-              // this.
 
   public:
-    // You also need a constructor and a destructor.
     MyPriorityQueue();
     ~MyPriorityQueue();
 
@@ -32,8 +28,7 @@ class MyPriorityQueue {
 
     // Note:  no non-const version of this one.  This is on purpose because
     // the interior contents should not be able to be modified due to the
-    // heap property.  This isn't true of all priority queues but
-    // for this project, we will do this.
+    // heap property.  This isn't true of all priority queues
     // min and extractMin should throw PriorityQueueEmptyException if the queue is
     // empty.
     const Object &min() const;
@@ -54,13 +49,12 @@ template <typename Object> MyPriorityQueue<Object>::~MyPriorityQueue()
 template <typename Object>
 size_t MyPriorityQueue<Object>::size() const noexcept
 {
-  return word_num; // stub
+  return word_num;
 }
 
 template <typename Object>
 bool MyPriorityQueue<Object>::isEmpty() const noexcept
 {
-  // return true; // stub
   if(word_num == 0)
   {
     return true;
@@ -87,7 +81,6 @@ bool MyPriorityQueue<Object>::isEqual(Object First, Object Second)
 template <typename Object>
 void MyPriorityQueue<Object>::insert(const Object &elem)
 {
-  // stub
   if(Min_heap.size() == 0)
   {
     Min_heap.push_back(elem);
@@ -135,7 +128,6 @@ void MyPriorityQueue<Object>::insert(const Object &elem)
 
 template <typename Object> const Object &MyPriorityQueue<Object>::min() const
 {
-  // return o; // terrible idea, don't actually do this.
   if(word_num == 0)
   {
     throw PriorityQueueEmptyException ("EMPTY");
@@ -148,7 +140,6 @@ template <typename Object> const Object &MyPriorityQueue<Object>::min() const
 
 template <typename Object> void MyPriorityQueue<Object>::extractMin()
 {
-  // stub
   if(Min_heap.size() == 0)
   {
     throw PriorityQueueEmptyException ("EMPTY");

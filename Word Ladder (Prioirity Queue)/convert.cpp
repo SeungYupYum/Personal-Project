@@ -4,7 +4,7 @@
 #include <unordered_set>
 #include <string>
 
-#include "MyPriorityQueue.hpp"
+#include "Priority_Queue.hpp"
 #include <stack>
 #include <unordered_map>
 #include <vector>
@@ -28,7 +28,6 @@ struct node
     }
 };
 
-// You should not need to change this function.
 void loadWordsIntoTable(std::unordered_set<std::string> & words, std::istream & in)
 {
 	std::string line, word;
@@ -59,7 +58,6 @@ int LetterDelta(const std::string& word1, const std::string& word2)
     return distance;
 }
 
-// You probably want to change this function.
 std::vector< std::string > convert(const std::string & s1, const std::string & s2, const std::unordered_set<std::string> & words)
 {
 	std::vector <std::string> solution;

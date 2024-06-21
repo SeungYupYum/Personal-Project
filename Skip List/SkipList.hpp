@@ -126,8 +126,6 @@ class SkipList
 {
 
 private:
-    // private variables go here.
-    // Value DELETE_ME;
     struct Node     // Eventually it is 2D doubly linked list.
     {
         Node* next;     // It seems that making node that contain 4 ponters is easier.
@@ -137,7 +135,7 @@ private:
         Key key;        // key
         Value value;    // value
         unsigned int node_level; // curent node's level
-    };                  // Node(Object new_data, Node* new_next) : data(new_data), next(new_next) { } // stil don't get it}
+    };
 
     size_t key_num;     // the total number of key in the list, 0 when created, so should be included in constructor
     unsigned int Max_layer;  // possible max level of the list. This variable is for insertion function to make limit of flip coin
@@ -264,7 +262,6 @@ SkipList<Key, Value>::SkipList()
     
     layer_level = 2;
 	key_num = 0;
-    // TODO - your implementation goes here!
 }
 
 template<typename Key, typename Value>
@@ -273,7 +270,6 @@ SkipList<Key, Value>::~SkipList()
     Node * temp_down = topleft;
     Node * temp_next = topleft;
 	Node * temp_temp;
-    // Node * temp = head;
 	
     while (temp_down != nullptr) 
     {
@@ -294,34 +290,29 @@ SkipList<Key, Value>::~SkipList()
 	topleft = nullptr;
     key_num = 0;
     layer_level = 0; // maybe 2?
-    // TODO - your implementation goes here!
 }
 
 template<typename Key, typename Value>
 size_t SkipList<Key, Value>::size() const noexcept 
 {
-    // TODO - your implementation goes here!
     return key_num;
 }
 
 template<typename Key, typename Value>
 bool SkipList<Key, Value>::isEmpty() const noexcept 
 {
-    // TODO - your implementation goes here!
     return (key_num == 0);
 }
 
 template<typename Key, typename Value>
 unsigned SkipList<Key, Value>::numLayers() const noexcept 
 {
-    // TODO - your implementation goes here!
     return layer_level;
 }
 
 template<typename Key, typename Value>
 unsigned SkipList<Key, Value>::height(const Key & k) const 
 {
-    // TODO - your implementation goes here!
     Node* current = topleft;        // Tracker for start
     Node* temp_right = topright;
     Node* temp_left = topleft;
@@ -358,7 +349,6 @@ unsigned SkipList<Key, Value>::height(const Key & k) const
 template<typename Key, typename Value>
 Key SkipList<Key, Value>::nextKey(const Key & k) const 
 {
-    // TODO - your implementation goes here!
     Node* current = topleft;        // Tracker for start
     Node* temp_right = topright;
     Node* temp_left = topleft;
@@ -409,13 +399,11 @@ Key SkipList<Key, Value>::nextKey(const Key & k) const
         }
     }
     throw RuntimeException ("Not found");
-    //return DELETE_ME;
 }
 
 template<typename Key, typename Value>
 Key SkipList<Key, Value>::previousKey(const Key & k) const // cannot do find(k) since there is a case where k does not exist in list
-{                                                          // previous key is smaller than k ? need to be asked.
-    // TODO - your implementation goes here!
+{                                                          
     Node* current = topleft;        // Tracker for start
     Node* temp_right = topright;
     Node* temp_left = topleft;
@@ -464,7 +452,6 @@ Key SkipList<Key, Value>::previousKey(const Key & k) const // cannot do find(k) 
         }
     }
     throw RuntimeException ("Not found");
-    //return DELETE_ME;
 }
 
 template<typename Key, typename Value>
@@ -501,13 +488,11 @@ const Value & SkipList<Key, Value>::find(Key k) const
         }
     }
     throw RuntimeException ("Not found");
-    //return DELETE_ME;
 }
 
 template<typename Key, typename Value>
 Value & SkipList<Key, Value>::find(const Key & k) 
 {
-    // TODO - your implementation goes here!
 
     Node* current = topleft;        // Tracker for start
     Node* temp_right = topright;
@@ -540,15 +525,12 @@ Value & SkipList<Key, Value>::find(const Key & k)
         }
     }
     throw RuntimeException ("Not found");
-    //return DELETE_ME;
 }
 
 
 template<typename Key, typename Value>
 bool SkipList<Key, Value>::finding(const Key & k) const
 {
-    // TODO - your implementation goes here!
-
     Node* current = topleft;        // Tracker for start
     Node* temp_right = topright;
     Node* temp_left = topleft;
@@ -580,7 +562,6 @@ bool SkipList<Key, Value>::finding(const Key & k) const
         }
     }
     return false;
-    //return DELETE_ME;
 }
 
 
@@ -589,8 +570,7 @@ template<typename Key, typename Value>
 bool SkipList<Key, Value>::insert(const Key & k, const Value & v) 
 {
     int counter;
-    // TODO - your implementation goes here!
-    // return true;
+
     if (finding(k) == true) // if it is already there, return false
     {
         return false;
@@ -955,7 +935,6 @@ std::vector<Key> SkipList<Key, Value>::allKeysInOrder() const
 template<typename Key, typename Value>
 bool SkipList<Key, Value>::isSmallestKey(const Key & k) const 
 {
-    // TODO - your implementation goes here!
     if (head -> next -> key == k && head -> next != tail)
     {
         return true;
@@ -977,7 +956,6 @@ bool SkipList<Key, Value>::isSmallestKey(const Key & k) const
 template<typename Key, typename Value>
 bool SkipList<Key, Value>::isLargestKey(const Key & k) const 
 {
-    // TODO - your implementation goes here!
     if (tail -> prev -> key == k && tail -> prev != head)
     {
         return true;

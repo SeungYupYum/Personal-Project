@@ -1,6 +1,5 @@
 #include "puzzleSolver.hpp"
 #include <deque>
-// PART 1 - Summation Puzzle Verifier. See project write-up for details.
 
 bool puzzleVerifier(const std::string& s1, const std::string& s2, const std::string& s3, const std::unordered_map<char, unsigned> &mapping)
 {

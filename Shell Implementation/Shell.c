@@ -109,8 +109,6 @@ void perform_redirection(char *args[], int num_args, char cmd_copy[])
         copied_args[index] = token;
         index++;
         token = strtok(NULL, DELIMITER);
-        // printf ("token = %s\n", token);
-
     } // now copied_command has command args wihout &.
 
     copied_args[index] = NULL;
@@ -181,9 +179,7 @@ void ctrl_c_handler(int signum)
                     // Exit if not a foreground process
                     return;
                 } else
-                { // kill if state is foreground..
-                    // printf("Killing .. state: %d\n", jobArray[i].state);
-                    // fflush(stdout);
+                {
                     kill(child_pid, SIGINT);
 
                     jobArray[i].job_id = i;
@@ -195,8 +191,6 @@ void ctrl_c_handler(int signum)
             }
         }
     }
-    // printf("return");
-    // fflush(stdout);
 }
 
 
@@ -223,7 +217,6 @@ void sigchld_handler(int signum)
 
 void ctrl_z_handler(int signum)
 {
-    // printf("ENTERED ctrl_z_handler\n");
     if (child_pid > 0) 
     {
         for(int i = 0; i < 10; i++)
@@ -238,7 +231,7 @@ void ctrl_z_handler(int signum)
                     kill(child_pid, SIGTSTP);
                     break;
                 } else
-                { // exit b/c it's not foreground
+                {
                     return;
                 }
             }
@@ -625,20 +618,17 @@ int main() {
             input[i] = '\0';
         }
         printf("prompt > ");
-        // fflush(stdout);
         fgets(input, sizeof(input), stdin);
         strcpy(command_copy, input);
         arg = strtok(input, DELIMITER);
 
         int i = 0;
-        // int arg_num = 1;
         int arg_num = 0;
 
         while (arg != NULL) 
         {
             args[i] = arg;
             arg_num = i;
-            // arg_num++;
             i++;
             arg = strtok(NULL, DELIMITER);
         }
@@ -672,7 +662,6 @@ int main() {
             {
                 pwd();
             }
-            // pwd();
         } 
         else if (strcmp(command, "quit") == 0) 
         {
@@ -696,7 +685,6 @@ int main() {
             {
                 jobs();
             }
-            // jobs();
         }
         else if(strcmp(command, "fg") == 0)
         {
