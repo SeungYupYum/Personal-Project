@@ -6,6 +6,9 @@
 
 This is implementation of heap and memory allocator. The heap is 127 bytes long and memory is byte-addressable. The first address of the heap is address 0, so the last address of the heap is address 126. The heap will be organized as an implicit free list. The heap is initially completely unallocated, so it should contain a single free block which is as big as the entire heap. Memory is initialized so that all addresses (other than the header of the initial free block) contain 0. Each block should have a header which is a single byte and the header byte should be contained in memory, just before the payload of the block. The most-significant 7 bits of the header should indicate the size of the block, including the header itself. The least significant bit of the header should indicate the allocation of the block: 0 for free, 1 for allocated. The header for the first block (the initial single free block) must be placed at address 0 in memory.
 
+
+When a block is requested which is smaller than any existing block in the heap, then your code must perform splitting to create a new block of the appropriate size. When a block is freed, it must be coalesced with the next block if the next block is free. When a block is freed, it DOES NOT need to be coalesced with the preceding block. When searching for a block to allocate, be sure to use the best-fit allocation strategy.
+
 ### Operation & Features
 
 Program provides a prompt to the user (“>”) and accept the following commands.
