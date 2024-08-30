@@ -32,7 +32,7 @@ template <typename T> class InterferenceGraph {
 public:
   // Custom type used to represent edges. This is mainly
   // used in the utility function for reading and writing
-  // the graph structure to/from files. You don't need to use it.
+  // the graph structure to/from files.
   using EdgeTy = std::pair<T, T>;
 
   InterferenceGraph();

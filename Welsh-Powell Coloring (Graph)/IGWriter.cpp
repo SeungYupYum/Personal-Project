@@ -1,12 +1,3 @@
-/**
-   IGWriter.cpp
-
-   You do NOT need to modify this file as part of your project. See IGWriter.hpp
-   for more info on how to use the graph writer. You may want to change the
-   colors that are used for the different registers though :)
-
-*/
-
 #include "IGWriter.hpp"
 #include "register_allocation.hpp"
 

@@ -149,8 +149,6 @@ public:
 
     SkipList();
 
-    // You DO NOT need to implement a copy constructor or an assignment operator.
-
     ~SkipList();
 
     // How many distinct keys are in the skip list?
@@ -216,9 +214,6 @@ public:
     // Is this the largest key in the SkipList? Throw a RuntimeException
     // if the key *k* does not exist in the Skip List. 
     bool isLargestKey(const Key & k) const;
-
-    // I am not requiring you to implement remove.
-
     
 };
 

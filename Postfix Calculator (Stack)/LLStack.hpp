@@ -12,8 +12,6 @@ public:
   }
 };
 
-// This is the LLStack class you will be implementing for this project.
-// Remember to see the write-up for more details!
 template <typename Object> 
 class LLStack 
 {

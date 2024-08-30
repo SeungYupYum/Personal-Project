@@ -1,12 +1,3 @@
-/**
-   CSVReader.cpp
-
-   You do NOT need to modify this file as part of your project. This is simply
-   a utility for creating an InterferenceGraph type from a graph file as
-   mentioned in the README.
-
-*/
-
 #include "CSVReader.hpp"
 #include "InterferenceGraph.hpp"
 #include <fstream>

@@ -11,8 +11,7 @@ using namespace RA;
 
 // assignRegisters
 //
-// This is where you implement the register allocation algorithm
-// as mentioned in the README. Remember, you must allocate at MOST
+// Must allocate at MOST
 // d(G) + 1 registers where d(G) is the maximum degree of the graph G.
 // If num_registers is not enough registers to accomodate the passed in
 // graph you should return an empty map. You MUST use registers in the
