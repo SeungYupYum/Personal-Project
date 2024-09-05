@@ -52,13 +52,53 @@ The shell supports six built-in commands: **jobs**, **bg**, **fg**, **cd**, **pw
 
  - **quit**: It ends the shell proecess.
 
+ - **Ctrl + C**: If a foreground job is running and the user types ctrl-C into the shell, then the foreground job should be terminated. 
+
+ - **Ctrl + Z**: If the user enters ctrl-Z into the shell while a foreground job is executing, the foreground job moves to the Stopped state.
+
  - **jobs**: A shell accpet the command "jobs". If user types "jobs" as commands, the shell shows a list of the status of jobs. Status can be "Running" (If it is in the Background/Running state) and "Stopped".
 
     ```cpp
-    [<job_id>] (<pid>) <status> <command_line>
-
+    FROM : [<job_id>] (<pid>) <status> <command_line>
+    EXAMPLE : 
     prompt > jobs
     [1] (30522) Running hello &
     [2] (30527) Stopped sleep
 
- - **bg**: 
+ - **bg**: The command is **bg <job_id|pid>**. If a user enters bg <job_id|pid> into the shell and the job indicated by <job_id|pid> is currently in the Stopped state, then it is moved to the Background/Running state. In order to move a process from              the Stopped state to the Background/Running state, the process must be restarted by sending it a SIGCONT signal using the kill() system call.
+   
+ - **fg**: The command is **fg <job_id|pid>**. If a user enters fg <job_id|pid> into the shell and the job indicated by <job_id|pid> is currently in the Stopped state or the Background/Running state, then it is moved to the Foreground/Running state.              In order to move a process from the Stopped state to the Foreground/Running state, the process must be restarted by sending it a SIGCONT signal using the kill() system call.
+
+ - **kill**: The command is **kill <job_id|pid>**. If a user enters kill <job_id|pid> into the shell, then it terminates a job by sending it a SIGINT signal using the kill() system call.
+
+## I/O Redirection
+
+Most command line programs that display their results do so by sending their results to standard output (display). However, before a command is executed, its input and output may be redirected using a special notation interpreted by the shell. To redirect standard output to a file, the ">" character is used by following under rules.
+
+**1.** To redirect standard output to a file, the ">" character is used like this:
+
+    ```cpp
+    prompt > jobs > file_list.txt
+
+In this example, the ls command is executed and the results are written in a file named file_list.txt. Since the output of ls was redirected to the file, no results appear on the display. Each time the command above is repeated, file_list.txt is overwritten from the beginning with the output of the command ls
+
+**2.** To redirectstandard input from a file instead of the keyboard, the "<" character is used like this:
+
+    ```cpp
+    prompt > sort < file_list.txt
+
+In the example above, we used the sort command to process the contents of file_list.txt and the output is displayed as a standard output.
+
+**3.** The results are output on the display since the standard output was not redirected. We could redirect standard output to another file like this:
+
+    ```cpp
+    prompt > add < number.txt > added_number.txt
+   
+**4.** The shell should also support the command to append to a file. It is virtually the same as standard output redirection except for the file to which the output was redirected to isn’t overwritten, instead, the incoming contents are simply appended to the end of the file. To redirect standard output and append to a file, use the “>>” string. For example:
+
+    ```cpp
+    prompt > jobs >> file_list.txt
+
+**NOTE:**  Use both execvp() and execv() to allow either case. 
+    **execvp()** : Linux commands{ls, cat, sort, ./hellp, ./slp}.
+    **execv()** : Linux commands{/bin/ls,/bin/cat,/bin/sort, hello,slp}.
