@@ -8,4 +8,4 @@ This is full-stack web development project, called Fablix. As it can be noticed 
 
 ### Database - MySQL (Bottom)
 
-For implementing database, it will use MySQL. The all information and attribute of required tables are listed in [create_table.sql](<create_table.sql>), [create_employee_table.sql](<create_employee_table.sql>).
+For implementing database, it will use MySQL. The all information and attribute of required tables are listed in [create_table.sql](<create_table.sql>), [movie-data.sql](<movie-data.sql>) and [create_employee_table.sql](<create_employee_table.sql>). Also, for increase performance, it supports full text search, which is listed in [FullText.sql](<FullText.sql>).
